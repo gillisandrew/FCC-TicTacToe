@@ -70,7 +70,7 @@
         }
         .o.square:after {
             font-family: 'FontAwesome';
-            content: '\f00d' !important;
+            content: '\f10c' !important;
             line-height: 100%;
             color: #ffffff;
             font-size: 17vh;
@@ -86,20 +86,30 @@
             height: 33.33%;
             width: 33.33%;
         }
+        .info-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
     </style>
     <script>
         $(document).ready(function() {
            currentRound = new round(); 
            console.log(currentRound);
            $('.main .square').click(function() {
-               var n = $(this).data('square')
-              currentRound.playerTurn(n);
+              currentRound.playerTurn($(this).data('square'));
+           });
+           $('.info-bar #cpuStart').click(function() {
+               currentRound.cpuTurn();
            });
         });
     </script>
 </head>
 
 <body>
+    <div class="info-bar">
+        <button type="button" id="cpuStart">CPU Start</button>
+    </div>
     <section class="main">
         <table class="board">
             <tr class="top-row">
