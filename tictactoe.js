@@ -120,7 +120,7 @@ round = function (n) {
         }else {
             $('.square[data-square=' + cpuPick + ']').addClass('x');
         }
-        if(cpuPick === undefined || this.roundEndTime !== null || this.squares.player.length >= 4) {
+        if(cpuPick === undefined || this.roundEndTime !== null || this.turn >= 9) {
             if(this.roundEndTime === null) {
                 currentScore.draw++;
             }else {
