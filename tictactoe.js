@@ -21,7 +21,10 @@ round = function (n) {
         $('.board').removeClass('is-o');
         $('.square').removeClass('o');
         $('.square').removeClass('x');
-        $('#cpuStart').removeClass('disabled');
+        $('.disabled').removeClass('disabled');
+        $('.main').click(function(e) {
+            e.preventDefault();
+        });
         currentRound = new round();
     }
     this.checkOutcomes = function () {
@@ -125,7 +128,8 @@ round = function (n) {
             }
             $('.score-board #loss').html(currentScore.loss);
             $('.score-board #draw').html(currentScore.draw);
-            setTimeout(function() {
+            $('.board').addClass('disabled');
+            resetTimer = setTimeout(function() {
                 currentRound.resetRound()
             }, 2000);
             
@@ -134,6 +138,9 @@ round = function (n) {
     };
     this.playerTurn = function (selection) {
         var index = this.squares.free.indexOf(selection)
+        if($('.board').hasClass('disabled')) {
+            return false;
+        }
         if (index !== -1) {
             this.turn++;
             this.squares.free[index] = false;

@@ -56,7 +56,7 @@
             border-bottom: 5px solid rgba(255, 255, 255, 1);
         }
         
-        .square:hover:after {
+        .board:not(.disabled) .square:hover:after {
             font-family: 'FontAwesome';
             content: '\f00d';
             line-height: 100%;
@@ -66,7 +66,7 @@
             width: 33.33%;
         }
         
-        .is-o .square:hover:after {
+        .board:not(.disabled) .is-o .square:hover:after {
             content: '\f10c';
         }
         
