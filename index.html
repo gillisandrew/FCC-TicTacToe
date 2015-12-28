@@ -16,74 +16,53 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <script type="text/javascript" src="tictactoe.js"></script>
     <script>
-
     </script>
     <style>
         body {
             background: #334466;
         }
-        
         .board {
-            height: 60vh;
-            width: 60vh;
-            max-height: 60vw;
-            max-width: 60vw;
-            margin: 20vh auto;
             border-collapse: collapse;
             text-align: center;
+            width: 600px;
+            height: 600px;
+            margin: 5px auto;
         }
-        
         .square {
             width: 33.33%;
             height: 33.33%;
-            transition: 0.5s ease all;
-            position: relative;
-            margin: 0;
-            padding: 0;
+            font-family: 'FontAwesome';
+            font-size: 175px;
+            line-height: 100%;
+            color: #ffffff;
         }
-        
         .square:nth-child(2) {
             border-left: 5px solid rgba(255, 255, 255, 1);
             border-right: 5px solid rgba(255, 255, 255, 1);
         }
-        
         .middle-row .square {
             border-top: 5px solid rgba(255, 255, 255, 1);
             border-bottom: 5px solid rgba(255, 255, 255, 1);
         }
-        
         .board:not(.disabled) .square:hover:after {
-            font-family: 'FontAwesome';
             content: '\f00d';
-            line-height: 100%;
-            color: #ffffff;
-            font-size: 17vh;
-            height: 33.33%;
-            width: 33.33%;
         }
         
         .board.is-o:not(.disabled) .square:hover:after {
             content: '\f10c';
         }
+        .board .square:active:after {
+            content: '';
+        }
         
         .o.square:after {
             font-family: 'FontAwesome';
             content: '\f10c' !important;
-            line-height: 100%;
-            color: #ffffff;
-            font-size: 17vh;
-            height: 33.33%;
-            width: 33.33%;
         }
         
         .x.square:after {
             font-family: 'FontAwesome';
             content: '\f00d' !important;
-            line-height: 100%;
-            color: #ffffff;
-            font-size: 17vh;
-            height: 33.33%;
-            width: 33.33%;
         }
         
         .info-bar {
@@ -99,7 +78,7 @@
         #cpuStart {
             margin: 0 auto;
             display: block;
-        } 
+        }
     </style>
     <script>
         $(document).ready(function() {
@@ -116,6 +95,14 @@
                 $(this).addClass('disabled');
                }
            });
+           $(document).keypress(function(e) {
+                if(e.which == 13) {
+                    $('#cpuStart').click();
+                }
+            });
+             $(document).keypress(function(e) {
+                $('.square[data-square="' + (e.which - 49) + '"]').click();
+            });
         });
     </script>
 </head>
