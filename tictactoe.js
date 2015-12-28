@@ -1,4 +1,4 @@
-round = function (n) {
+Round = function (n) {
     this.roundNumber = n;
     this.roundStartTime = new Date();
     this.roundEndTime = null;
@@ -25,7 +25,7 @@ round = function (n) {
         $('.main').click(function(e) {
             e.preventDefault();
         });
-        currentRound = new round();
+        currentRound = new Round();
     }
     this.checkOutcomes = function () {
         var choice1 = [];
