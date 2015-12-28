@@ -1,4 +1,4 @@
-Round = function (n) {
+var Round = function (n) {
     this.roundNumber = n;
     this.roundStartTime = new Date();
     this.roundEndTime = null;
