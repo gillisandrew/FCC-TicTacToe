@@ -1,68 +1,88 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Tic Tac Toe | Andrew Gillis</title>
-        <script type="text/javascript" src="tictactoe.js"></script>
-        <script>
-        </script>
-        <style>
-            body {
-                background: #334466;
-            }
-            .main {
-                margin: 10px 0;
-            }
-            .board {
-                height: 60vh;
-                width: 60vh;
-                max-height: 60vw;
-                max-width: 60vw;
-                margin: 20vh auto;
-                border-collapse: collapse;
-                text-align: center;
-            }
-            .square {
-                width: 33.33%;
-                height: 33.33%;
-                transition: 0.5s ease all;
-                position: relative;
-            }
-            .square:nth-child(2) {
-                border-left: 5px solid rgba(255, 255, 255, 1);
-                border-right: 5px solid rgba(255, 255, 255, 1);
-            }
-            .middle-row .square {
-                border-top: 5px solid rgba(255, 255, 255, 1);
-                border-bottom: 5px solid rgba(255, 255, 255, 1);
-            }     
-            .square:hover:after {
-                font-family: Arial, Helvetica, sans-serif;
-                content: 'X';
-                color: #ffffff;
-                font-size: 10vh;
-            }
-                   
-        </style>
-    </head>
-    <body>
-        <section class="main">
-            <table class="board">
-                <tr class="top-row">
-                    <td id="square1" class="square"></td>
-                    <td id="square2" class="square"></td>
-                    <td id="square3" class="square"></td>
-                </tr>
-                <tr class="middle-row">
-                    <td id="square4" class="square"></td>
-                    <td id="square5" class="square"></td>
-                    <td id="square6" class="square"></td>
-                </tr>
-                <tr class="bottom-row">
-                    <td id="square7" class="square"></td>
-                    <td id="square8" class="square"></td>
-                    <td id="square9" class="square"></td>
-                </tr>
-            </table>
-        </section>
-    </body>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tic Tac Toe | Andrew Gillis</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+    crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://bootswatch.com/cosmo/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="tictactoe.js"></script>
+    <script>
+
+    </script>
+    <style>
+        body {
+            background: #334466;
+        }
+        
+        .main {
+            margin: 10px 0;
+        }
+        
+        .board {
+            height: 60vh;
+            width: 60vh;
+            max-height: 60vw;
+            max-width: 60vw;
+            margin: 20vh auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        
+        .square {
+            width: 33.33%;
+            height: 33.33%;
+            transition: 0.5s ease all;
+            position: relative;
+        }
+        
+        .square:nth-child(2) {
+            border-left: 5px solid rgba(255, 255, 255, 1);
+            border-right: 5px solid rgba(255, 255, 255, 1);
+        }
+        
+        .middle-row .square {
+            border-top: 5px solid rgba(255, 255, 255, 1);
+            border-bottom: 5px solid rgba(255, 255, 255, 1);
+        }
+        
+        .square:hover:after {
+            font-family: Arial, Helvetica, sans-serif;
+            content: 'X';
+            color: #ffffff;
+            font-size: 10vh;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="main">
+        <table class="board">
+            <tr class="top-row">
+                <td id="square1" class="square"></td>
+                <td id="square2" class="square"></td>
+                <td id="square3" class="square"></td>
+            </tr>
+            <tr class="middle-row">
+                <td id="square4" class="square"></td>
+                <td id="square5" class="square"></td>
+                <td id="square6" class="square"></td>
+            </tr>
+            <tr class="bottom-row">
+                <td id="square7" class="square"></td>
+                <td id="square8" class="square"></td>
+                <td id="square9" class="square"></td>
+            </tr>
+        </table>
+    </section>
+</body>
+
 </html>
