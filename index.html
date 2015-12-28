@@ -42,6 +42,8 @@
             height: 33.33%;
             transition: 0.5s ease all;
             position: relative;
+            margin: 0;
+            padding: 0;
         }
         
         .square:nth-child(2) {
@@ -55,31 +57,65 @@
         }
         
         .square:hover:after {
-            font-family: Arial, Helvetica, sans-serif;
-            content: 'X';
+            font-family: 'FontAwesome';
+            content: '\f00d';
+            line-height: 100%;
             color: #ffffff;
-            font-size: 10vh;
+            font-size: 17vh;
+            height: 33.33%;
+            width: 33.33%;
+        }
+        .is-o .square:hover:after {
+            content: '\f10c'
+        }
+        .o.square:after {
+            font-family: 'FontAwesome';
+            content: '\f00d' !important;
+            line-height: 100%;
+            color: #ffffff;
+            font-size: 17vh;
+            height: 33.33%;
+            width: 33.33%;
+        }
+        .x.square:after {
+            font-family: 'FontAwesome';
+            content: '\f00d' !important;
+            line-height: 100%;
+            color: #ffffff;
+            font-size: 17vh;
+            height: 33.33%;
+            width: 33.33%;
         }
     </style>
+    <script>
+        $(document).ready(function() {
+           currentRound = new round(); 
+           console.log(currentRound);
+           $('.main .square').click(function() {
+               var n = $(this).data('square')
+              currentRound.playerTurn(n);
+           });
+        });
+    </script>
 </head>
 
 <body>
     <section class="main">
         <table class="board">
             <tr class="top-row">
-                <td id="square1" class="square"></td>
-                <td id="square2" class="square"></td>
-                <td id="square3" class="square"></td>
+                <td data-square="0" class="square"></td>
+                <td data-square="1" class="square"></td>
+                <td data-square="2" class="square"></td>
             </tr>
             <tr class="middle-row">
-                <td id="square4" class="square"></td>
-                <td id="square5" class="square"></td>
-                <td id="square6" class="square"></td>
+                <td data-square="3" class="square"></td>
+                <td data-square="4" class="square"></td>
+                <td data-square="5" class="square"></td>
             </tr>
             <tr class="bottom-row">
-                <td id="square7" class="square"></td>
-                <td id="square8" class="square"></td>
-                <td id="square9" class="square"></td>
+                <td data-square="6" class="square"></td>
+                <td data-square="7" class="square"></td>
+                <td data-square="8" class="square"></td>
             </tr>
         </table>
     </section>
