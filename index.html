@@ -119,9 +119,9 @@
     </style>
     <script>
         $(document).ready(function() {
-           var roundHistory = [];
+           roundHistory = [];
            currentScore = {'win': 0, 'loss': 0, 'draw': 0};
-           var currentRound = new Round(); 
+           currentRound = new Round(); 
            console.log(currentRound);
            $('.main .square').click(function() {
               currentRound.playerTurn($(this).data('square'));
