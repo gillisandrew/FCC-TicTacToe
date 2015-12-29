@@ -17,14 +17,15 @@ var Round = function (n) {
     this.squares.free = [0, 1, 2, 3, 4, 5, 6, 7, 8];
     this.squares.player = [];
     this.squares.cpu = [];
-    this.resetRound = function() {
+    this.resetRound = function () {
         $('.board').removeClass('is-o');
         $('.square').removeClass('o');
         $('.square').removeClass('x');
         $('.disabled').removeClass('disabled');
-        $('.main').click(function(e) {
+        $('.main').click(function (e) {
             e.preventDefault();
         });
+        roundHistory.push(currentRound);
         currentRound = new Round();
     }
     this.checkOutcomes = function () {
@@ -71,15 +72,15 @@ var Round = function (n) {
                     ideal = i;
                     nIdeal = count;
                 }
-                console.log(ideal + ' is ideal with '+ count);
+                console.log(ideal + ' is ideal with ' + count);
             }
-            if(ideal === -1) {
-                var choice3 = this.squares.free.filter(function(check) {
+            if (ideal === -1) {
+                var choice3 = this.squares.free.filter(function (check) {
                     return typeof check === 'number';
                 });
                 console.log('choice3')
                 return choice3[Math.floor(Math.random() * choice3.length + 1) - 1];
-            }else {
+            } else {
                 console.log('choice2')
                 return ideal;
             }
@@ -107,7 +108,7 @@ var Round = function (n) {
                 if (typeof this.squares.free[4] !== 'number') {
                     cpuPick = this.checkOutcomes();
                     break;
-                }else {
+                } else {
                     cpuPick = 4;
                     break;
                 }
@@ -117,39 +118,39 @@ var Round = function (n) {
         }
         console.log(cpuPick);
         this.squares.free[cpuPick] = true;
-        if(this.turn % 2 === 0) {
+        if (this.turn % 2 === 0) {
             $('.square[data-square=' + cpuPick + ']').addClass('o');
-        }else {
+        } else {
             $('.square[data-square=' + cpuPick + ']').addClass('x');
         }
-        if(cpuPick === undefined || this.roundEndTime !== null || this.turn >= 9) {
-            if(this.roundEndTime === null) {
+        if (cpuPick === undefined || this.roundEndTime !== null || this.turn >= 9) {
+            if (this.roundEndTime === null) {
                 currentScore.draw++;
-            }else {
+            } else {
                 currentScore.loss++;
             }
             $('.score-board #loss').html(currentScore.loss);
             $('.score-board #draw').html(currentScore.draw);
             $('.board').addClass('disabled');
-            resetTimer = setTimeout(function() {
+            resetTimer = setTimeout(function () {
                 currentRound.resetRound()
             }, 2000);
-            
+
         }
         return cpuPick;
     };
     this.playerTurn = function (selection) {
         var index = this.squares.free.indexOf(selection)
-        if($('.board').hasClass('disabled')) {
+        if ($('.board').hasClass('disabled')) {
             return false;
         }
         if (index !== -1) {
             this.turn++;
             this.squares.free[index] = false;
             this.squares.player.push(selection);
-            if(this.turn % 2 === 0) {
+            if (this.turn % 2 === 0) {
                 $('.square[data-square=' + selection + ']').addClass('o');
-            }else {
+            } else {
                 $('.square[data-square=' + selection + ']').addClass('x');
             }
             this.cpuTurn();
@@ -159,17 +160,17 @@ var Round = function (n) {
 
 function hoverTouchUnstick() {
     // Check if the device supports touch events
-    if('ontouchstart' in document.documentElement) {
+    if ('ontouchstart' in document.documentElement) {
         // Loop through each stylesheet
-        for(var sheetI = document.styleSheets.length - 1; sheetI >= 0; sheetI--) {
+        for (var sheetI = document.styleSheets.length - 1; sheetI >= 0; sheetI--) {
             var sheet = document.styleSheets[sheetI];
             // Verify if cssRules exists in sheet
-            if(sheet.cssRules) {
+            if (sheet.cssRules) {
                 // Loop through each rule in sheet
-                for(var ruleI = sheet.cssRules.length - 1; ruleI >= 0; ruleI--) {
+                for (var ruleI = sheet.cssRules.length - 1; ruleI >= 0; ruleI--) {
                     var rule = sheet.cssRules[ruleI];
                     // Verify rule has selector text
-                    if(rule.selectorText) {
+                    if (rule.selectorText) {
                         // Replace hover psuedo-class with active psuedo-class
                         rule.selectorText = rule.selectorText.replace(":hover", ":active");
                     }

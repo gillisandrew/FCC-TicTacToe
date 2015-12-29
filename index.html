@@ -15,34 +15,40 @@
     crossorigin="anonymous"></script>
     <script type="text/javascript" src="tictactoe.js"></script>
     <script>
+
     </script>
     <style>
         body {
             background: #334466;
         }
+        
         .board {
             border-collapse: collapse;
             text-align: center;
-            width:70vw;
+            width: 70vw;
             height: 70vh;
             max-width: 70vh;
             max-height: 70vw;
             margin: 0 auto;
         }
+        
         .square {
             position: relative;
             width: 33.33%;
             height: 33.33%;
             overflow: visible;
         }
+        
         .square:nth-child(2) {
             border-left: 5px solid rgba(255, 255, 255, 1);
             border-right: 5px solid rgba(255, 255, 255, 1);
         }
+        
         .middle-row .square {
             border-top: 5px solid rgba(255, 255, 255, 1);
             border-bottom: 5px solid rgba(255, 255, 255, 1);
         }
+        
         .square img {
             position: absolute;
             left: 10%;
@@ -52,18 +58,23 @@
             opacity: 0;
             transition: 0.2s ease opacity;
         }
+        
         .board:not(.is-o) .square:not(.o):hover .svg.x-symbol {
             opacity: 1;
         }
+        
         .board.is-o .square:not(.x):hover .svg.o-symbol {
             opacity: 1;
         }
+        
         .square.o .svg.o-symbol {
             opacity: 1;
         }
+        
         .square.x .svg.x-symbol {
             opacity: 1;
         }
+        
         .info-bar {
             width: 70vw;
             height: 20vh;
@@ -75,13 +86,16 @@
             text-align: center;
             color: #ffffff;
         }
+        
         #cpuStart {
             margin: 0 auto;
             display: block;
         }
-        .score-board span{
+        
+        .score-board span {
             position: relative;
         }
+        
         .score-board span:after {
             font-size: 7px;
             position: absolute;
@@ -90,20 +104,24 @@
             bottom: 0;
             left: 0;
         }
+        
         #win:after {
             content: 'Wins';
         }
+        
         #loss:after {
             content: 'Losses';
         }
+        
         #draw:after {
             content: 'Ties';
         }
     </style>
     <script>
         $(document).ready(function() {
-           currentScore = {'win': 0, 'loss': 0, 'draw': 0};
-           currentRound = new Round(); 
+            var roundHistory = [];
+           var currentScore = {'win': 0, 'loss': 0, 'draw': 0};
+           var currentRound = new Round(); 
            console.log(currentRound);
            $('.main .square').click(function() {
               currentRound.playerTurn($(this).data('square'));
