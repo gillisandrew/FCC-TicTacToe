@@ -13,7 +13,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
     crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <script type="text/javascript" src="tictactoe.js"></script>
     <script>
     </script>
@@ -24,17 +23,17 @@
         .board {
             border-collapse: collapse;
             text-align: center;
-            width: 600px;
-            height: 600px;
-            margin: 5px auto;
+            width:70vw;
+            height: 70vh;
+            max-width: 70vh;
+            max-height: 70vw;
+            margin: 0 auto;
         }
         .square {
+            position: relative;
             width: 33.33%;
             height: 33.33%;
-            font-family: 'FontAwesome';
-            font-size: 175px;
-            line-height: 100%;
-            color: #ffffff;
+            overflow: visible;
         }
         .square:nth-child(2) {
             border-left: 5px solid rgba(255, 255, 255, 1);
@@ -44,31 +43,32 @@
             border-top: 5px solid rgba(255, 255, 255, 1);
             border-bottom: 5px solid rgba(255, 255, 255, 1);
         }
-        .board:not(.disabled) .square:hover:after {
-            content: '\f00d';
-        }
-        
-        .board.is-o:not(.disabled) .square:hover:after {
-            content: '\f10c';
-        }
-        .board .square:active:after {
-            content: '';
-        }
-        
-        .o.square:after {
-            font-family: 'FontAwesome';
-            content: '\f10c' !important;
-        }
-        
-        .x.square:after {
-            font-family: 'FontAwesome';
-            content: '\f00d' !important;
-        }
-        
-        .info-bar {
+        .square img {
             position: absolute;
-            top: 0;
-            width: 200px;
+            left: 10%;
+            top: 10%;
+            width: 80%;
+            height: auto;
+            opacity: 0;
+            transition: 0.2s ease opacity;
+        }
+        .board:not(.is-o) .square:not(.o):hover .svg.x-symbol {
+            opacity: 1;
+        }
+        .board.is-o .square:not(.x):hover .svg.o-symbol {
+            opacity: 1;
+        }
+        .square.o .svg.o-symbol {
+            opacity: 1;
+        }
+        .square.x .svg.x-symbol {
+            opacity: 1;
+        }
+        .info-bar {
+            width: 70vw;
+            height: 20vh;
+            margin: 0 auto;
+            text-align: center;
         }
         
         .score-board {
@@ -78,6 +78,26 @@
         #cpuStart {
             margin: 0 auto;
             display: block;
+        }
+        .score-board span{
+            position: relative;
+        }
+        .score-board span:after {
+            font-size: 7px;
+            position: absolute;
+            text-align: center;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+        #win:after {
+            content: 'Wins';
+        }
+        #loss:after {
+            content: 'Losses';
+        }
+        #draw:after {
+            content: 'Ties';
         }
     </style>
     <script>
@@ -116,19 +136,19 @@
     <section class="main">
         <table class="board">
             <tr class="top-row">
-                <td data-square="0" class="square"></td>
-                <td data-square="1" class="square"></td>
-                <td data-square="2" class="square"></td>
+                <td data-square="0" class="square"><img class="svg x-symbol" src="img/x.svg" /><img class="svg o-symbol" src="img/o.svg" /></td>
+                <td data-square="1" class="square"><img class="svg x-symbol" src="img/x.svg" /><img class="svg o-symbol" src="img/o.svg" /></td>
+                <td data-square="2" class="square"><img class="svg x-symbol" src="img/x.svg" /><img class="svg o-symbol" src="img/o.svg" /></td>
             </tr>
             <tr class="middle-row">
-                <td data-square="3" class="square"></td>
-                <td data-square="4" class="square"></td>
-                <td data-square="5" class="square"></td>
+                <td data-square="3" class="square"><img class="svg x-symbol" src="img/x.svg" /><img class="svg o-symbol" src="img/o.svg" /></td>
+                <td data-square="4" class="square"><img class="svg x-symbol" src="img/x.svg" /><img class="svg o-symbol" src="img/o.svg" /></td>
+                <td data-square="5" class="square"><img class="svg x-symbol" src="img/x.svg" /><img class="svg o-symbol" src="img/o.svg" /></td>
             </tr>
             <tr class="bottom-row">
-                <td data-square="6" class="square"></td>
-                <td data-square="7" class="square"></td>
-                <td data-square="8" class="square"></td>
+                <td data-square="6" class="square"><img class="svg x-symbol" src="img/x.svg" /><img class="svg o-symbol" src="img/o.svg" /></td>
+                <td data-square="7" class="square"><img class="svg x-symbol" src="img/x.svg" /><img class="svg o-symbol" src="img/o.svg" /></td>
+                <td data-square="8" class="square"><img class="svg x-symbol" src="img/x.svg" /><img class="svg o-symbol" src="img/o.svg" /></td>
             </tr>
         </table>
     </section>

@@ -51,7 +51,7 @@ var Round = function (n) {
             } else if (playerCount === 2 && cpuCount === 0) {
                 console.log('CPU Blocks!')
                 choice1.push(odd[0]);
-            } else if (cpuCount === 1 && playerCount === 0) {
+            } else if ((cpuCount === 1 && playerCount === 0) || (cpuCount === 0 && playerCount === 1)) {
                 choice2.push(odd[0], odd[1]);
             }
         }
@@ -69,7 +69,9 @@ var Round = function (n) {
                 }, 0);
                 if (nIdeal < count) {
                     ideal = i;
+                    nIdeal = count;
                 }
+                console.log(ideal + ' is ideal with '+ count);
             }
             if(ideal === -1) {
                 var choice3 = this.squares.free.filter(function(check) {
