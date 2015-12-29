@@ -31,6 +31,7 @@ var Round = function (n) {
     this.checkOutcomes = function () {
         var choice1 = [];
         var choice2 = [];
+        var choice3 = [];
         for (var i = 0; i < this.squares.win.length; i++) {
             var cpuCount = 0;
             var playerCount = 0;
@@ -75,7 +76,7 @@ var Round = function (n) {
                 console.log(ideal + ' is ideal with ' + count);
             }
             if (ideal === -1) {
-                var choice3 = this.squares.free.filter(function (check) {
+                choice3 = this.squares.free.filter(function (check) {
                     return typeof check === 'number';
                 });
                 console.log('choice3')
